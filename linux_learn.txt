@@ -1,4 +1,56 @@
-pwd 当前工作目录
+通常情况下 $ 符号表示当前登陆的用户是普通用户，如果是 # 的话 就表示是超级管理员。
+1.查看当前工作目录
+pwd
+
+2.更改目录
 cd [目录名]
 目录名有几个符号有特殊的含义，“..”代表上一级目录、“~”代表HOME目录、“-”代表前一目录
-mkdir name 创建文件夹
+
+3.创建目录(文件夹)
+mkdir name
+
+4.创建文件
+touch /tmp/a.txt
+
+5.删除文件或文件夹
+rm /tmp/a.txt
+rm -r /tmp/test/	有确认
+rm -fr /tmp/test/	无确认(强制)
+
+6.复制文件或文件夹
+cp  [参数]  源文件 目标文件
+cp -r dir//tmp/
+
+7.复制当前目录下的所有文件到指定目录
+cp dir/* /tmp/
+
+8.移动和改名
+mv  [参数]  源文件 目地文件	
+mv dir/ directory
+
+9.查看文件内容
+cat		全部显示，后屏覆盖前屏
+more	分屏显示
+less	
+head	显示前十行
+tail	显示后十行
+
+10.查找命令
+find [路径] [参数]
+参数说明：
+时间：
+   -atimen    :在 n*24小时内被 access 即存取过的文件列出来！
+   -ctimen    :在 n*24小时内被 changed 即改变、新增的文件或目录印出
+   -mtimen    :在 n*24小时内被 modified 即修改过的文件印出
+  -newer file :比 file 还要新的文件就列出来！
+使用名称：
+   -gidn     :寻找 群组 ID 为 n 的文件
+   -group name :寻找群组名称为 name的文件
+   -uidn     :寻找拥有者 ID 为 n 的文件
+   -user name :寻找使用者名称为 name 的文件
+   -name file :寻找档名为 file 的文件名称（可以使用万用字符）
+   -type type :寻找档案属性为 type 的档案，type 包含了 b, c, d, p, l, s，这些与前一章的属性相同！例如 l 为 Link而 d 为路径之意！
+
+11.重定向
+有时候我们需要将一些文件信息不是输出到屏幕上，而是让其输出到指定的文件或其它位置，这时我们就要用到了输出重定向了。输出重定向只需要加上> 这位一个符号就可以了。下面我要把 /etc/services 文件中的内容输出到当前目录下的a.txt 文件中，如下：
+cat /etc/services > a.txt
